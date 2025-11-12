@@ -11,7 +11,7 @@ class Solution:
             if stack[top] != num:
                 top += 1
                 stack[top] = num
-
+            print(stack)
         return ans + top
     
-print(Solution.minOperations([7, 2, 0, 4, 2]))  # Output: 4
+print(Solution.minOperations([1, 2, 1, 2, 1, 2]))  # Output: 4
