@@ -1,13 +1,14 @@
-import math
+MOD = 10**9 + 7
+facs = {}
+facs[1] = 1
+facs[2] = 2
+for i in range(2,(10**5)+1):
+    facs[i] = (facs[i-1] * i) % MOD  
 class Solution:
     def countPermutations(self, complexity: List[int]) -> int:
-        n = len(complexity)
-        for i in range(1, n):
-            if complexity[i] <= complexity[0]:
-                return 0
         
-        return math.factorial(n-1) % (10**9 + 7)
-    
-    
-    
-print(Solution().countPermutations([38,223,100,123,406,234,256,93,222,259,233,69,139,245,45,98,214]))
+        lowest = complexity[0]
+        for c in complexity[1:]:
+            if c <= lowest:
+                return 0 
+        return facs[len(complexity)-1]
